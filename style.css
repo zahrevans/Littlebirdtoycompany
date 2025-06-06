@@ -1,0 +1,32 @@
+body {
+  background-color: #fad4c0;
+  align-items: center;
+}
+
+#landing-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+#landing-logo {
+  width: clamp(300px, 60vw, 700px);
+  height: auto;
+  animation: popIn 0.9s ease-out;
+  width: 50%;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
