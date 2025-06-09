@@ -17,13 +17,19 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <header>
-      <nav>
+      <nav style="z-index: 2">
         <ul>
-          <li>
+          <li data-href="home.html" class="d-inline-block">
             <div class="home-icon">
               <div class="roof">
                 <div class="roof-edge"></div>
@@ -31,23 +37,22 @@
               <div class="front"></div>
             </div>
           </li>
-          <li>
+
+          <li data-href="about.html">
             <div class="about-icon">
-              <div class="head">
-                <div class="eyes"></div>
-                <div class="beard"></div>
+              <div class="aboutus">
+                <img src="imgs/mainlogowhite.png" class="imgfix" />
               </div>
             </div>
           </li>
-          <li>
+
+          <li data-href="shop.html">
             <div class="work-icon">
-              <div class="paper"></div>
-              <div class="lines"></div>
-              <div class="lines"></div>
-              <div class="lines"></div>
+              <img src="imgs/blocks.png" class="imgfix" />
             </div>
           </li>
-          <li>
+
+          <li data-href="contact.html">
             <div class="mail-icon">
               <div class="mail-base">
                 <div class="mail-top"></div>
@@ -57,7 +62,11 @@
         </ul>
       </nav>
     </header>
-    <main></main>
+    <main>
+      <div class="hero">
+        <h1>Little Bird Toy Company</h1>
+      </div>
+    </main>
     <footer>
       <!-- place footer here -->
     </footer>
