@@ -191,11 +191,20 @@ nav ul li div {
 
 .hero {
   height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1)),
-    url(http://localhost:5500/imgs/hero.png) center/cover no-repeat;
   position: relative;
 }
 
+.hero .overlay {
+  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1)),
+    url(http://localhost:5500/imgs/hero.png) center/cover no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(3px);
+  z-index: 0;
+}
 h1 {
   position: absolute;
   top: 50%;
@@ -209,4 +218,12 @@ h1 {
   font-family: "Satisfy", cursive;
   font-weight: 400;
   font-style: normal;
+  text-shadow: 5px 5px 0 #000000, -1px 1px 0 #000000, 1px -1px 0 #000000,
+    -1px -1px 0 #000000, 0px 1px 0 #000000, 0px -1px 0 #000000,
+    -1px 0px 0 #000000, 1px 0px 0 #000000, 2px 2px 0 #000000, -2px 2px 0 #000000,
+    2px -2px 0 #000000, -2px -2px 0 #000000, 0px 2px 0 #000000,
+    0px -2px 0 #000000, -2px 0px 0 #000000, 2px 0px 0 #000000, 1px 2px 0 #000000,
+    -1px 2px 0 #000000, 1px -2px 0 #000000, -1px -2px 0 #000000,
+    2px 1px 0 #000000, -2px 1px 0 #000000, 2px -1px 0 #000000,
+    -2px -1px 0 #000000;
 }
