@@ -245,7 +245,7 @@ html {
 .about {
   padding: 100px 50px;
   background: #fff8e7;
-  opacity: 0;
+  /* opacity: 0; */
   transform: translateY(50px);
   text-align: center;
 }
