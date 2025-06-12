@@ -189,41 +189,78 @@ nav ul li div {
   border-color: transparent transparent white transparent;
 }
 
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Comic Neue", cursive;
+  background: #fdf6ec;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 .hero {
   height: 100vh;
   position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
 
-.hero .overlay {
-  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1)),
-    url(http://localhost:5500/imgs/hero.png) center/cover no-repeat;
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  filter: blur(3px);
   z-index: 0;
 }
-h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 3;
-  transform: translate(-50%, -50%);
+
+.hero-inner {
+  z-index: 1;
   color: #fff;
+}
+
+.hero-inner h1 {
   font-size: 150px;
+  color: #fff;
+  font-family: "Satisfy", cursive;
+  text-shadow: 5px 5px 0 #000000, -1px 1px 0 #000000, 1px -1px 0 #000000,
+    -1px -1px 0 #000000, 0px 1px 0 #000000, 0px -1px 0 #000000,
+    -1px 0px 0 #000000, 1px 0px 0 #000000;
+  margin-bottom: 0.5rem;
+}
+
+.hero-inner p {
+  font-size: 20px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+.about {
+  padding: 100px 50px;
+  background: #fff8e7;
+  opacity: 0;
+  transform: translateY(50px);
   text-align: center;
-  white-space: nowrap;
+}
+
+.about h2 {
+  font-size: 100px;
   font-family: "Satisfy", cursive;
   font-weight: 400;
   font-style: normal;
-  text-shadow: 5px 5px 0 #000000, -1px 1px 0 #000000, 1px -1px 0 #000000,
-    -1px -1px 0 #000000, 0px 1px 0 #000000, 0px -1px 0 #000000,
-    -1px 0px 0 #000000, 1px 0px 0 #000000, 2px 2px 0 #000000, -2px 2px 0 #000000,
-    2px -2px 0 #000000, -2px -2px 0 #000000, 0px 2px 0 #000000,
-    0px -2px 0 #000000, -2px 0px 0 #000000, 2px 0px 0 #000000, 1px 2px 0 #000000,
-    -1px 2px 0 #000000, 1px -2px 0 #000000, -1px -2px 0 #000000,
-    2px 1px 0 #000000, -2px 1px 0 #000000, 2px -1px 0 #000000,
-    -2px -1px 0 #000000;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
