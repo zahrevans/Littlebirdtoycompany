@@ -122,7 +122,7 @@ nav ul li div {
   border-width: 0 17px 12px 17px;
   border-color: transparent transparent #ff914d transparent;
 }
-
+/*white triangle over red triangle*/
 .roof-edge:after {
   position: absolute;
   left: -14.5px;
@@ -187,74 +187,4 @@ nav ul li div {
   border-style: solid;
   border-width: 0 16px 9px 16px;
   border-color: transparent transparent white transparent;
-}
-
-body,
-html {
-  margin: 0;
-  padding: 0;
-  font-family: "Comic Neue", cursive;
-  background: #fdf6ec;
-}
-
-.hero {
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.8);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-}
-
-.hero-inner {
-  z-index: 1;
-  color: #fff;
-}
-
-.hero-inner h1 {
-  font-size: 150px;
-  color: #fff;
-  font-family: "Satisfy", cursive;
-  text-shadow: 5px 5px 0 #000000, -1px 1px 0 #000000, 1px -1px 0 #000000,
-    -1px -1px 0 #000000, 0px 1px 0 #000000, 0px -1px 0 #000000,
-    -1px 0px 0 #000000, 1px 0px 0 #000000;
-  margin-bottom: 0.5rem;
-}
-
-.hero-inner p {
-  font-size: 20px;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  margin: 0;
-}
-
-.about {
-  padding: 100px 50px;
-  background: #fff8e7;
-  transform: translateY(50px);
-  text-align: center;
-  margin-top: 80px;
-}
-
-.about h2 {
-  font-family: "Satisfy", cursive;
-  font-size: 60px;
-  margin-bottom: 0.5rem;
-}
-
-.about p {
-  font-size: 18px;
-  line-height: 1.6;
 }

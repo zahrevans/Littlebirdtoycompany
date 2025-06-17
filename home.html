@@ -38,7 +38,7 @@
             </div>
           </li>
 
-          <li data-href="about.html">
+          <li data-href="#about">
             <div class="about-icon">
               <div class="aboutus">
                 <img src="imgs/mainlogowhite.png" class="imgfix" />
@@ -46,7 +46,7 @@
             </div>
           </li>
 
-          <li data-href="shop.html">
+          <li data-href="products.html">
             <div class="work-icon">
               <img src="imgs/blocks.png" class="imgfix" />
             </div>
@@ -67,15 +67,59 @@
         <img src="imgs/hero.png" alt="Little Bird Hero" />
         <div class="hero-inner">
           <h1>The Little Bird Toy Company</h1>
-          <p>Imagination takes flight</p>
         </div>
       </section>
 
       <section class="about" id="about">
-        <h2>About Us</h2>
-        <p>
-          We craft toys that spark curiosity and joy for every little dreamer.
-        </p>
+        <div class="container text-center">
+          <h2>About Us</h2>
+
+          <p class="lead">
+            Little Bird Toys, established in 2018, brings families handcrafted
+            wooden toys designed to spark imagination and slow down playtime.
+            Our heirloom-quality collection is built from sustainable materials
+            and made to last a lifetime, fostering connections between
+            generations.
+          </p>
+
+          <div class="row justify-content-center mt-5 text-start">
+            <div class="col-md-6 mb-4">
+              <h3>Our Story</h3>
+              <p>
+                Little Bird Toys began with a simple goal: to bring families
+                timeless, beautifully handcrafted wooden toys. Since 2018, we’ve
+                helped foster meaningful play through heirloom-quality pieces
+                built from sustainable materials.
+              </p>
+            </div>
+            <div class="col-md-6 mb-4">
+              <h3>Our Quality</h3>
+              <p>
+                We believe in the power of simple, safe play. Our handcrafted
+                toys are free from plastic and batteries, and made with
+                sustainable Baltic birch wood. Each piece is meticulously
+                crafted and rigorously tested in our Toms River, NJ workshop to
+                meet the highest safety standards (ASTM & CA-Prop 65).
+              </p>
+            </div>
+            <div class="col-md-6 mb-4">
+              <h3>Our Commitment to Sustainability</h3>
+              <p>
+                At Little Bird Toys, we are committed to eco-friendly practices.
+                Our toys are designed for longevity, and our manufacturing
+                process minimizes waste and supports the US economy.
+              </p>
+            </div>
+            <div class="col-md-6 mb-4">
+              <h3>Visit Us</h3>
+              <p>
+                Become part of the Little Bird Toys family! Visit our store in
+                Toms River, NJ to explore our charming play space, meet our
+                passionate team, and see the joy of handcrafted toys in action.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <footer>
@@ -97,5 +141,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="js/home.js"></script>
+    <script>
+      document.querySelectorAll("nav li[data-href]").forEach((item) => {
+        item.addEventListener("click", function () {
+          const href = this.getAttribute("data-href");
+          if (href.startsWith("#")) {
+            document.querySelector(href)?.scrollIntoView();
+          } else {
+            window.location.href = href;
+          }
+        });
+      });
+    </script>
   </body>
 </html>

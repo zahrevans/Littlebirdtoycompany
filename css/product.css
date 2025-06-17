@@ -1,100 +1,234 @@
-body {
-  height: 600px;
-  margin: 0;
-  display: grid;
-  grid-template-rows: 500px 100px;
-  grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
-  align-items: center;
-  justify-items: center;
-}
+ body {
+            height: 600px;
+            margin: 0;
+            display: grid;
+            grid-template-rows: 500px 100px;
+            grid-template-columns: 1fr 30px 30px 30px 1fr;
+            align-items: center;
+            justify-items: center;
+        }
 
-main#carousel {
-  grid-row: 1 / 2;
-  grid-column: 1 / 8;
-  width: 100vw;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  perspective: 600px;
-  --items: 5;
-  --middle: 3;
-  --position: 1;
-  pointer-events: none;
-}
+        main#carousel {
+            grid-row: 1 / 2;
+            grid-column: 1 / 6;
+            width: 100vw;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 600px;
+            --items: 3;
+            --middle: 2;
+            --position: 1;
+            pointer-events: none;
+        }
 
-div.item {
-  position: absolute;
-  width: 300px;
-  height: 400px;
-  background-color: coral;
-  --r: calc(var(--position) - var(--offset));
-  --abs: max(calc(var(--r) * -1), var(--r));
-  transition: all 0.25s linear;
-  transform: rotateY(calc(-10deg * var(--r)))
-    translateX(calc(-300px * var(--r)));
-  z-index: calc((var(--position) - var(--abs)));
-}
+        div.item {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            background-color: coral;
+            --r: calc(var(--position) - var(--offset));
+            --abs: max(calc(var(--r) * -1), var(--r));
+            transition: all 0.25s linear;
+            transform: rotateY(calc(-10deg * var(--r)))
+                translateX(calc(-300px * var(--r)));
+            z-index: calc((var(--position) - var(--abs)));
+            cursor: pointer;
+            pointer-events: auto;
+        }
 
-div.item:nth-of-type(1) {
-  --offset: 1;
-  background-color: #90f1ef;
-}
-div.item:nth-of-type(2) {
-  --offset: 2;
-  background-color: #ff70a6;
-}
-div.item:nth-of-type(3) {
-  --offset: 3;
-  background-color: #ff9770;
-}
-div.item:nth-of-type(4) {
-  --offset: 4;
-  background-color: #ffd670;
-}
-div.item:nth-of-type(5) {
-  --offset: 5;
-  background-color: #e9ff70;
-}
+        div.item:nth-of-type(1) {
+            --offset: 1;
+            background-color: #90f1ef;
+        }
 
-input:nth-of-type(1) {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-}
-input:nth-of-type(1):checked ~ main#carousel {
-  --position: 1;
-}
+        div.item:nth-of-type(2) {
+            --offset: 2;
+            background-color: #ff70a6;
+        }
 
-input:nth-of-type(2) {
-  grid-column: 3 / 4;
-  grid-row: 2 / 3;
-}
-input:nth-of-type(2):checked ~ main#carousel {
-  --position: 2;
-}
+        div.item:nth-of-type(3) {
+            --offset: 3;
+            background-color: #ff9770;
+        }
 
-input:nth-of-type(3) {
-  grid-column: 4 /5;
-  grid-row: 2 / 3;
-}
-input:nth-of-type(3):checked ~ main#carousel {
-  --position: 3;
-}
+        input:nth-of-type(1) {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+        }
 
-input:nth-of-type(4) {
-  grid-column: 5 / 6;
-  grid-row: 2 / 3;
-}
-input:nth-of-type(4):checked ~ main#carousel {
-  --position: 4;
-}
+        input:nth-of-type(1):checked ~ main#carousel {
+            --position: 1;
+        }
 
-input:nth-of-type(5) {
-  grid-column: 6 / 7;
-  grid-row: 2 / 3;
-}
-input:nth-of-type(5):checked ~ main#carousel {
-  --position: 5;
-}
+        input:nth-of-type(2) {
+            grid-column: 3 / 4;
+            grid-row: 2 / 3;
+        }
+
+        input:nth-of-type(2):checked ~ main#carousel {
+            --position: 2;
+        }
+
+        input:nth-of-type(3) {
+            grid-column: 4 / 5;
+            grid-row: 2 / 3;
+        }
+
+        input:nth-of-type(3):checked ~ main#carousel {
+            --position: 3;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        /* Custom Modal Styles */
+        body.modal-active {
+            overflow-x: hidden;
+            overflow-y: visible;
+        }
+
+        #modal-container {
+            position: fixed;
+            display: table;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            transform: scale(0);
+            z-index: 1;
+        }
+
+        #modal-container.four {
+            z-index: 0;
+            transform: scale(1);
+        }
+
+        #modal-container.four .modal-background {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        #modal-container.four .modal-background .modal {
+            animation: blowUpModal 0.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        }
+
+        #modal-container.four + .content {
+            z-index: 1;
+            animation: blowUpContent 0.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        }
+
+        #modal-container.four.out .modal-background .modal {
+            animation: blowUpModalTwo 0.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        }
+
+        #modal-container.four.out + .content {
+            animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+        }
+
+        .modal-background {
+            display: table-cell;
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .modal {
+            background: white;
+            padding: 50px;
+            display: inline-block;
+            border-radius: 3px;
+            font-weight: 300;
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .modal h2 {
+            font-size: 25px;
+            line-height: 25px;
+            margin-bottom: 15px;
+        }
+
+        .modal p {
+            font-size: 18px;
+            line-height: 22px;
+        }
+
+        .modal .modal-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            min-height: 100%;
+        }
+
+        .modal-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 3px;
+        }
+
+        .modal-svg rect {
+            stroke: #fff;
+            stroke-width: 2px;
+            stroke-dasharray: 778;
+            stroke-dashoffset: 778;
+        }
+
+        /* Animations */
+        @keyframes blowUpContent {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            99.9% {
+                transform: scale(2);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
+        @keyframes blowUpContentTwo {
+            0% {
+                transform: scale(2);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes blowUpModal {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes blowUpModalTwo {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(0);
+            }
