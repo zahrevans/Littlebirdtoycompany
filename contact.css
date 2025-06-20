@@ -191,7 +191,7 @@ nav ul li div {
 
 .new_home_web .text-blk.subHeading {
   text-align: center;
-  color: #939393;
+  color: #666666;
   max-width: 630px;
 }
 
@@ -203,6 +203,7 @@ nav ul li div {
   margin-right: 0px;
   margin-bottom: 20px;
   margin-left: 0px;
+  color: #ff914d;
 }
 
 .new_home_web .responsive-container-block.textContainer {
@@ -226,20 +227,14 @@ nav ul li div {
 }
 
 .new_home_web .send:hover {
-  background-image: initial;
-  background-position-x: initial;
-  background-position-y: initial;
-  background-size: initial;
-  background-attachment: initial;
-  background-origin: initial;
-  background-clip: initial;
+  background-color: #e77e3d;
 }
 
 .new_home_web .send {
   font-size: 18px;
   color: white;
   font-weight: 600;
-  background-color: #ea5541;
+  background-color: #ff914d;
   width: 80%;
   text-align: center;
   padding-top: 15px;
@@ -312,10 +307,10 @@ nav ul li div {
   border-right-style: solid;
   border-bottom-style: solid;
   border-left-style: solid;
-  border-top-color: #a2a2a2;
-  border-right-color: #a2a2a2;
-  border-bottom-color: #a2a2a2;
-  border-left-color: #a2a2a2;
+  border-top-color: #ff914d;
+  border-right-color: #ff914d;
+  border-bottom-color: #ff914d;
+  border-left-color: #ff914d;
   border-image-source: initial;
   border-image-slice: initial;
   border-image-width: initial;
@@ -330,7 +325,7 @@ nav ul li div {
   padding-right: 30px;
   padding-bottom: 20px;
   padding-left: 20px;
-  background-color: #f1f1f1;
+  background-color: white;
 }
 
 .new_home_web .input {
@@ -344,10 +339,10 @@ nav ul li div {
   border-right-style: solid;
   border-bottom-style: solid;
   border-left-style: solid;
-  border-top-color: #a2a2a2;
-  border-right-color: #a2a2a2;
-  border-bottom-color: #a2a2a2;
-  border-left-color: #a2a2a2;
+  border-top-color: #ff914d;
+  border-right-color: #ff914d;
+  border-bottom-color: #ff914d;
+  border-left-color: #ff914d;
   border-image-source: initial;
   border-image-slice: initial;
   border-image-width: initial;
@@ -362,7 +357,7 @@ nav ul li div {
   padding-right: 15px;
   padding-bottom: 5px;
   padding-left: 15px;
-  background-color: #f1f1f1;
+  background-color: white;
 }
 
 .new_home_web .responsive-container-block.big-container {
@@ -393,15 +388,15 @@ nav ul li div {
 }
 
 .new_home_web textarea:focus {
-  outline-color: initial;
-  outline-style: none;
-  outline-width: initial;
+  outline-color: #ff914d;
+  outline-style: solid;
+  outline-width: 2px;
 }
 
 .new_home_web input:focus {
-  outline-color: initial;
-  outline-style: none;
-  outline-width: initial;
+  outline-color: #ff914d;
+  outline-style: solid;
+  outline-width: 2px;
 }
 
 .new_home_web a {
@@ -457,13 +452,13 @@ nav ul li div {
 }
 
 .new_home_web .orangeText {
-  color: #ea5541;
+  color: #ff914d;
 }
 
 .new_home_web .orangeLine {
   height: 10px;
   width: 160px;
-  background-color: #eb604d;
+  background-color: #ff914d;
 }
 
 .new_home_web .topHead {
@@ -486,7 +481,10 @@ nav ul li div {
   right: 0px;
   top: auto;
   bottom: 0px;
+  background: none;
 }
+
+/* media queries stay same */
 
 @media (max-width: 1024px) {
   .new_home_web
@@ -593,6 +591,7 @@ nav ul li div {
     height: 90%;
     top: auto;
     left: auto;
+    background: none;
   }
 
   .new_home_web .text-blk.heading {
@@ -635,6 +634,7 @@ nav ul li div {
 
   .new_home_web .imgBG {
     height: 60%;
+    background: none;
   }
 
   .new_home_web .text-blk.subHeading {
