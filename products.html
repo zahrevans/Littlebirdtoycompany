@@ -58,49 +58,114 @@
       </nav>
     </header>
 
-    <body>
-      <input type="radio" name="position" checked />
-      <input type="radio" name="position" />
-      <input type="radio" name="position" />
+    <div class="container-fluid py-4">
+        <!-- Header Section -->
+        <div class="row justify-content-center">
+            <div class="col-12 border p-3 mb-2 text-center">
+                <div>
 
-      <main id="carousel">
-        <div class="item">
-          <img src="toys/block1.png" alt="block" />
-        </div>
-        <div class="item">
-          <img src="toys/boat1.png" alt="boat" />
-        </div>
-        <div class="item">
-          <img src="toys/car1.png" alt="car" />
-        </div>
-      </main>
+<input type="radio" name="position" id="pos1" checked />
+                <input type="radio" name="position" id="pos2" />
+                <input type="radio" name="position" id="pos3" />
+                <input type="radio" name="position" id="pos4" />
+                <input type="radio" name="position" id="pos5" />
+                
+                <main id="carousel">
+                    <!-- Navigation Buttons -->
+                    <button class="carousel-nav prev" id="prevBtn">&#8249;</button>
+                    <button class="carousel-nav next" id="nextBtn">&#8250;</button>
+                    
+                    <div class="item carousel-card" data-index="0">
+                        <img src="toys/block1.png" alt="block" />
+                    </div>
+                    <div class="item carousel-card" data-index="1">
+                        <img src="toys/boat1.png" alt="boat" />
+                    </div>
+                    <div class="item carousel-card" data-index="2">
+                        <img src="toys/car1.png" alt="car" />
+                    </div>
+                    <div class="item carousel-card" data-index="3">
+                        <img src="toys/plane1.png" alt="plane" />
+                    </div>
+                    <div class="item carousel-card" data-index="4">
+                        <img src="toys/train1.png" alt="train" />
+                    </div>
+                </main>
 
-      <div id="modal-container">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Row -->
+        <div class="row justify-content-center">
+            <!-- Left Side - Color Carousel -->
+            <div class="col-md-6 border p-3 mb-2 text-center">
+                <div>
+
+                  <section id="image-carousel" class="splide" aria-label="Beautiful Images">
+  <div class="splide__track">
+		<ul class="splide__list">
+			<li class="splide__slide">
+				<img src="image01.jpg" alt="">
+			</li>
+			<li class="splide__slide">
+				<img src="image02.jpg" alt="">
+			</li>
+			<li class="splide__slide">
+				<img src="image03.jpg" alt="">
+			</li>
+		</ul>
+  </div>
+</section>
+
+
+                </div>
+            </div>
+
+            <!-- Right Side - Reviews -->
+            <div class="col-md-6 border p-3 mb-2 text-center">
+                <div>
+
+                  <!-- Elfsight All-in-One Reviews | Untitled All-in-One Reviews -->
+<script src="https://static.elfsight.com/platform/platform.js" async></script>
+<div class="elfsight-app-01210c42-f3bd-4d19-8076-fb7a48634784" data-elfsight-app-lazy></div>
+
+                </div>
+            </div>
+        </div
+
+     <div id="modal-container">
         <div class="modal-background">
-          <div class="modal">
-            <svg
-              class="modal-svg"
-              xmlns="http://www.w3.org/2000/svg"
-              width="100%"
-              height="100%"
-              preserveAspectRatio="none"
-            >
-              <rect
-                x="0"
-                y="0"
-                fill="none"
-                width="100%"
-                height="100%"
-                rx="3"
-              ></rect>
-            </svg>
-            <img id="modal-image" class="modal-image" src="" alt="" />
-            <h2 id="modal-title">Toy Details</h2>
-            <p id="modal-description">Description goes here</p>
-          </div>
+            <div class="modal">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h2 id="modal-title">Toy Details</h2>
+                    <button class="modal-close" id="modal-close-btn">&times;</button>
+                </div>
+                
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <!-- Main Image Display -->
+                    <div class="main-image-container">
+                        <img id="modal-image" class="modal-image" src="" alt="" />
+                    </div>
+                    
+                    <!-- Color Selector -->
+                    <div class="color-selector-title">Available Colors:</div>
+                    <div id="color-options" class="color-options"></div>
+                </div>
+                
+                <!-- Modal Actions -->
+                <div class="modal-actions">
+                    <button class="action-button" id="view-details-btn">View Details</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </body>
+    </div> 
+
+
+    
 
     <footer>
       <!-- place footer here -->
@@ -130,5 +195,9 @@
         });
       });
     </script>
+    <script src="path-to-the-file/splide.min.js"></script>
+    <script>
+  new Splide( '#image-carousel' ).mount();
+</script>
   </body>
 </html>
