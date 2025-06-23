@@ -59,7 +59,7 @@ const products = [
     }
 ];
 
-// Review data array
+// Review array
 const reviews = [
     {
         name: "Samantha",
@@ -78,7 +78,7 @@ const reviews = [
     }
 ];
 
-// Display products dynamically
+// Display products 
 const productGallery = document.getElementById("product-gallery");
 
 products.forEach(function (product, index) {
@@ -86,13 +86,13 @@ products.forEach(function (product, index) {
     col.className = "col-md-4";
 
     const variantEntries = Object.entries(product.variants);
-    const defaultImage = variantEntries[0][1]; // first image
+    const defaultImage = variantEntries[0][1];
     const variantOptions = variantEntries
         .map(([color, path]) => `<option value="${path}">${color}</option>`)
         .join("");
 
     col.innerHTML = `
-    <div class="card h-100 text-center">
+    <div class="card h-100 text-center justify-content-center">
       <img src="${defaultImage}" class="card-img-top" id="product-img-${index}" alt="${product.name}">
       <div class="card-body">
         <h5 class="card-title">${product.name}</h5>
@@ -108,7 +108,7 @@ products.forEach(function (product, index) {
     productGallery.appendChild(col);
 });
 
-// Display reviews dynamically
+// Display reviews 
 const reviewSection = document.getElementById("review-section");
 
 reviews.forEach(function (review) {
