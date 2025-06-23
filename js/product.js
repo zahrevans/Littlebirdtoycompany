@@ -7,6 +7,7 @@ const products = [
         variants: {
             Regular: "toys/train1.jpg",
             Blue: "toys/train1blue.png",
+            BlueYellow: "toys/train1bluey.png",
             Green: "toys/train1green.png",
             Yellow: "toys/train1yelb.png"
         }
@@ -31,6 +32,7 @@ const products = [
             Regular: "toys/car1.png",
             Blue: "toys/car1bluey.png",
             Green: "toys/car1greenbl.png",
+            Red: "toys/car1red.png",
             Yellow: "toys/car1yelp.png"
         }
     },
@@ -41,6 +43,7 @@ const products = [
         variants: {
             Regular: "toys/plane1.jpg",
             Blue: "toys/plane1blue.png",
+            BlueYellow: "toys/plane1bluey.png",
             Green: "toys/plane1green.png",
             Yellow: "toys/plane1yelp.png"
         }
@@ -93,7 +96,7 @@ products.forEach(function (product, index) {
       <img src="${defaultImage}" class="card-img-top" id="product-img-${index}" alt="${product.name}">
       <div class="card-body">
         <h5 class="card-title">${product.name}</h5>
-        <p class="card-text">$${product.price.toFixed(2)}</p>
+        <p class="card-text">$${product.price}</p>
         <select class="variant-select" onchange="changeVariant(this, ${index})">
           ${variantOptions}
         </select>
