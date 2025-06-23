@@ -1,175 +1,148 @@
+// Product data array with color variants
 const products = [
     {
-        product: "block",
-        colors: {
-            color1: "block1.png",
-            color2: "block1bluey.png",
-            color3: null,
-            color4: null,
-            color5: null
+        name: "Wooden Train",
+        price: 24.99,
+        description: "Handcrafted birch train with wheels.",
+        variants: {
+            Regular: "toys/train1.jpg",
+            Blue: "toys/train1blue.png",
+            Green: "toys/train1green.png",
+            Yellow: "toys/train1yelb.png"
         }
     },
     {
-        product: "boat",
-        colors: {
-            color1: "boat1.png",
-            color2: "boat1blred.png",
-            color3: "boat1blue.png",
-            color4: "boat1green.png",
-            color5: "boat1yelb.png"
+        name: "Boat",
+        price: 19.99,
+        description: "Smooth-sailing boat perfect for water play.",
+        variants: {
+            Regular: "toys/boat1.png",
+            Red: "toys/boat1blred.png",
+            Blue: "toys/boat1blue.png",
+            Green: "toys/boat1green.png",
+            Yellow: "toys/boat1yelb.png"
         }
     },
     {
-        product: "car",
-        colors: {
-            color1: "car1.png",
-            color2: "car1bluey.png",
-            color3: "car1greenbl.png",
-            color4: "car1red.png",
-            color5: "car1yelb.png"
+        name: "Car",
+        price: 17.49,
+        description: "Durable and fun car made for toddlers.",
+        variants: {
+            Regular: "toys/car1.png",
+            Blue: "toys/car1bluey.png",
+            Green: "toys/car1greenbl.png",
+            Yellow: "toys/car1yelp.png"
         }
     },
     {
-        product: "plane",
-        colors: {
-            color1: "plane1bluey.png", // Placeholder for plane1.png
-            color2: "plane1bluey.png",
-            color3: "plane1blue.png",
-            color4: "plane1green.png",
-            color5: "plane1yelb.png"
+        name: "Plane",
+        price: 19.99,
+        description: "Zoom into the sky with this wooden airplane.",
+        variants: {
+            Regular: "toys/plane1.jpg",
+            Blue: "toys/plane1blue.png",
+            Green: "toys/plane1green.png",
+            Yellow: "toys/plane1yelp.png"
         }
     },
     {
-        product: "train",
-        colors: {
-            color1: "train1blred.png", // Placeholder for train1.png
-            color2: "train1blred.png",
-            color3: "train1blue.png",
-            color4: "train1green.png",
-            color5: "train1yelb.png"
+        name: "Block",
+        price: 14.99,
+        description: "Stackable fun for growing minds.",
+        variants: {
+            Regular: "toys/block1.png",
+            Blue: "toys/block1bluey.png"
         }
     }
 ];
 
-// Carousel Navigation Logic
-let currentPosition = 1;
-const totalItems = 5;
+// Review data array
+const reviews = [
+    {
+        name: "Samantha",
+        review: "Beautiful craftsmanship!",
+        rating: 5
+    },
+    {
+        name: "James",
+        review: "Great quality and fast shipping.",
+        rating: 4
+    },
+    {
+        name: "Olivia",
+        review: "My kids love these toys.",
+        rating: 5
+    }
+];
 
-function updateCarousel(position) {
-    if (position < 1) position = totalItems;
-    if (position > totalItems) position = 1;
-    currentPosition = position;
+// Display products dynamically
+const productGallery = document.getElementById("product-gallery");
 
-    // Check the corresponding radio button
-    document.getElementById('pos' + position).checked = true;
+products.forEach(function (product, index) {
+    const col = document.createElement("div");
+    col.className = "col-md-4";
 
-    // Update carousel CSS variable
-    document.querySelector('#carousel').style.setProperty('--position', position);
+    const variantEntries = Object.entries(product.variants);
+    const defaultImage = variantEntries[0][1]; // first image
+    const variantOptions = variantEntries
+        .map(([color, path]) => `<option value="${path}">${color}</option>`)
+        .join("");
+
+    col.innerHTML = `
+    <div class="card h-100 text-center">
+      <img src="${defaultImage}" class="card-img-top" id="product-img-${index}" alt="${product.name}">
+      <div class="card-body">
+        <h5 class="card-title">${product.name}</h5>
+        <p class="card-text">$${product.price.toFixed(2)}</p>
+        <select class="variant-select" onchange="changeVariant(this, ${index})">
+          ${variantOptions}
+        </select>
+        <button class="btn btn-primary mt-2" onclick="showModal(${index})">Learn More</button>
+      </div>
+    </div>
+  `;
+
+    productGallery.appendChild(col);
+});
+
+// Display reviews dynamically
+const reviewSection = document.getElementById("review-section");
+
+reviews.forEach(function (review) {
+    const col = document.createElement("div");
+    col.className = "col-md-4";
+
+    let stars = "★".repeat(review.rating);
+
+    col.innerHTML = `
+    <div class="card p-3 h-100 text-center">
+      <h5>${review.name}</h5>
+      <p>"${review.review}"</p>
+      <p style="color: gold;">${stars}</p>
+    </div>
+  `;
+
+    reviewSection.appendChild(col);
+});
+
+// Change variant image
+function changeVariant(selectElement, index) {
+    const newImagePath = selectElement.value;
+    const img = document.getElementById(`product-img-${index}`);
+    img.src = newImagePath;
 }
 
-// Previous button event listener
-document.getElementById('prevBtn').addEventListener('click', function () {
-    updateCarousel(currentPosition - 1);
-});
+// Show modal with selected variant
+function showModal(index) {
+    const product = products[index];
+    const selectedVariant = document.querySelectorAll(".variant-select")[index].value;
 
-// Next button event listener
-document.getElementById('nextBtn').addEventListener('click', function () {
-    updateCarousel(currentPosition + 1);
-});
+    document.getElementById("modalTitle").textContent = product.name;
+    document.getElementById("modalImage").src = selectedVariant;
+    document.getElementById("modalImage").alt = product.name;
+    document.getElementById("modalDescription").textContent = product.description;
+    document.getElementById("modalPrice").textContent = product.price.toFixed(2);
 
-// Update current position when radio buttons are clicked
-document.querySelectorAll('input[name="position"]').forEach((radio, index) => {
-    radio.addEventListener('change', function () {
-        if (this.checked) {
-            currentPosition = index + 1;
-            updateCarousel(currentPosition);
-        }
-    });
-});
-
-// Add keyboard navigation
-document.addEventListener('keydown', function (event) {
-    if (!document.body.classList.contains('modal-active')) {
-        if (event.key === 'ArrowLeft') {
-            updateCarousel(currentPosition - 1);
-        } else if (event.key === 'ArrowRight') {
-            updateCarousel(currentPosition + 1);
-        }
-    }
-});
-
-// Add click event listeners to carousel cards
-document.querySelectorAll('.carousel-card').forEach(card => {
-    card.addEventListener('click', function () {
-        const index = parseInt(this.getAttribute('data-index'));
-        const product = products[index];
-
-        if (product) {
-            // Update modal title
-            document.getElementById('modal-title').textContent = product.product.charAt(0).toUpperCase() + product.product.slice(1);
-
-            // Set initial image to first color
-            const firstColor = Object.values(product.colors).find(color => color !== null);
-            document.getElementById('modal-image').src = `toys/${firstColor}`;
-            document.getElementById('modal-image').alt = product.product;
-
-            // Generate color selector thumbnails
-            const colorContainer = document.getElementById('color-options');
-            colorContainer.innerHTML = '';
-
-            Object.entries(product.colors).forEach(([colorKey, colorValue], colorIndex) => {
-                if (colorValue !== null) {
-                    const colorOption = document.createElement('div');
-                    colorOption.className = 'color-option' + (colorIndex === 0 ? ' selected' : '');
-                    colorOption.innerHTML = `<img src="toys/${colorValue}" alt="${product.product} ${colorKey}" />`;
-
-                    // Add click event to change main image
-                    colorOption.addEventListener('click', function () {
-                        document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
-                        this.classList.add('selected');
-                        document.getElementById('modal-image').src = `toys/${colorValue}`;
-                    });
-
-                    colorContainer.appendChild(colorOption);
-                }
-            });
-
-            // Show modal
-            document.getElementById('modal-container').className = 'four';
-            document.body.classList.add('modal-active');
-        }
-    });
-});
-
-// Close modal function
-function closeModal() {
-    const modal = document.getElementById('modal-container');
-    modal.classList.add('out');
-    document.body.classList.remove('modal-active');
-
-    setTimeout(() => {
-        modal.className = '';
-    }, 500);
+    const modal = new bootstrap.Modal(document.getElementById("productModal"));
+    modal.show();
 }
-
-// Close modal when clicking close button
-document.getElementById('modal-close-btn').addEventListener('click', closeModal);
-
-// Close modal when clicking on background
-document.getElementById('modal-container').addEventListener('click', function (e) {
-    if (e.target === this || e.target.classList.contains('modal-background')) {
-        closeModal();
-    }
-});
-
-// Close modal with Escape key
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-        closeModal();
-    }
-});
-
-// View Details Button
-document.getElementById('view-details-btn').addEventListener('click', function () {
-    console.log('Navigate to details page');
-});

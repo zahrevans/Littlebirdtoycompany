@@ -922,7 +922,7 @@ footer {
   border-radius: 50%;
   display: none;
   z-index: 9999;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: background 0.2s, opacity 0.2s;
   border: none;
   outline: none;
