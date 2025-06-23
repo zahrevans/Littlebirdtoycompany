@@ -2,8 +2,8 @@ const products = [
     {
         product: "block",
         colors: {
-            color1: "block1.jpg",
-            color2: "block1bluey.jpg",
+            color1: "block1.png",
+            color2: "block1bluey.png",
             color3: null,
             color4: null,
             color5: null
@@ -12,41 +12,41 @@ const products = [
     {
         product: "boat",
         colors: {
-            color1: "boat1.jpg",
-            color2: "boat1blred.jpg",
-            color3: "boat1blue.jpg",
-            color4: "boat1green.jpg",
-            color5: "boat1yelb.jpg"
+            color1: "boat1.png",
+            color2: "boat1blred.png",
+            color3: "boat1blue.png",
+            color4: "boat1green.png",
+            color5: "boat1yelb.png"
         }
     },
     {
         product: "car",
         colors: {
-            color1: "car1.jpg",
-            color2: "car1bluey.jpg",
-            color3: "car1greenbl.jpg",
-            color4: "car1red.jpg",
-            color5: "car1yelb.jpg"
+            color1: "car1.png",
+            color2: "car1bluey.png",
+            color3: "car1greenbl.png",
+            color4: "car1red.png",
+            color5: "car1yelb.png"
         }
     },
     {
         product: "plane",
         colors: {
-            color1: "plane1.jpg",
-            color2: "plane1bluey.jpg",
-            color3: "plane1blue.jpg",
-            color4: "plane1green.jpg",
-            color5: "plane1yelb.jpg"
+            color1: "plane1bluey.png", // Placeholder for plane1.png
+            color2: "plane1bluey.png",
+            color3: "plane1blue.png",
+            color4: "plane1green.png",
+            color5: "plane1yelb.png"
         }
     },
     {
         product: "train",
         colors: {
-            color1: "train1.jpg",
-            color2: "train1blred.jpg",
-            color3: "train1blue.jpg",
-            color4: "train1green.jpg",
-            color5: "train1yelb.jpg"
+            color1: "train1blred.png", // Placeholder for train1.png
+            color2: "train1blred.png",
+            color3: "train1blue.png",
+            color4: "train1green.png",
+            color5: "train1yelb.png"
         }
     }
 ];
@@ -56,14 +56,15 @@ let currentPosition = 1;
 const totalItems = 5;
 
 function updateCarousel(position) {
-    // Ensure position stays within bounds
     if (position < 1) position = totalItems;
     if (position > totalItems) position = 1;
-
     currentPosition = position;
 
     // Check the corresponding radio button
-    document.getElementById(`pos${position}`).checked = true;
+    document.getElementById('pos' + position).checked = true;
+
+    // Update carousel CSS variable
+    document.querySelector('#carousel').style.setProperty('--position', position);
 }
 
 // Previous button event listener
@@ -81,13 +82,13 @@ document.querySelectorAll('input[name="position"]').forEach((radio, index) => {
     radio.addEventListener('change', function () {
         if (this.checked) {
             currentPosition = index + 1;
+            updateCarousel(currentPosition);
         }
     });
 });
 
 // Add keyboard navigation
 document.addEventListener('keydown', function (event) {
-    // Only navigate if modal is not open
     if (!document.body.classList.contains('modal-active')) {
         if (event.key === 'ArrowLeft') {
             updateCarousel(currentPosition - 1);
@@ -107,7 +108,7 @@ document.querySelectorAll('.carousel-card').forEach(card => {
             // Update modal title
             document.getElementById('modal-title').textContent = product.product.charAt(0).toUpperCase() + product.product.slice(1);
 
-            // Set initial image to first color (assuming toys folder)
+            // Set initial image to first color
             const firstColor = Object.values(product.colors).find(color => color !== null);
             document.getElementById('modal-image').src = `toys/${firstColor}`;
             document.getElementById('modal-image').alt = product.product;
@@ -124,11 +125,8 @@ document.querySelectorAll('.carousel-card').forEach(card => {
 
                     // Add click event to change main image
                     colorOption.addEventListener('click', function () {
-                        // Remove selected class from all options
                         document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
-                        // Add selected class to clicked option
                         this.classList.add('selected');
-                        // Update main modal image
                         document.getElementById('modal-image').src = `toys/${colorValue}`;
                     });
 
@@ -171,9 +169,7 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-// View Details Button - you can add your page navigation here
+// View Details Button
 document.getElementById('view-details-btn').addEventListener('click', function () {
-    // Add your navigation logic here
-    // Example: window.location.href = 'product-details.html';
     console.log('Navigate to details page');
 });
