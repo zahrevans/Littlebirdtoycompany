@@ -659,11 +659,12 @@ nav ul li div {
 .contact-info {
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   font-family: Nunito, sans-serif;
   font-size: 16px;
   line-height: 1.8;
   color: #333;
+  text-align: center; /* Center table content */
 }
 
 .contact-info li ul {
@@ -676,22 +677,78 @@ nav ul li div {
   color: #ff914d;
   text-decoration: underline;
 }
-
-textarea {
-  resize: none;
+.contact-info th,
+.contact-info td {
+  padding: 18px 28px;
+  vertical-align: top;
+  text-align: center; /* Center table content */
 }
 
-.text {
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  white-space: nowrap;
+@media (max-width: 900px) {
+  .contact-info th,
+  .contact-info td {
+    padding: 12px 10px;
+    text-align: center; /* Center table content on medium screens */
+  }
 }
 
+@media (max-width: 700px) {
+  .contact-info,
+  .contact-info thead,
+  .contact-info tbody,
+  .contact-info tr {
+    display: block;
+    width: 100%;
+  }
+  .contact-info tr {
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid #eee;
+  }
+  .contact-info th,
+  .contact-info td {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center; /* Center table content on small screens */
+  }
+  .contact-info th {
+    background: #fff7f2;
+    color: #ff914d;
+    border-bottom: none;
+    font-size: 1.1em;
+    text-decoration: underline;
+  }
+  .contact-info td {
+    background: #fff;
+    border-bottom: none;
+  }
+}
+
+.divider-col {
+  width: 1px;
+  min-width: 16px;
+  max-width: 24px;
+  text-align: center;
+  color: #ff914d;
+  font-weight: bold;
+  font-size: 1.5em;
+  vertical-align: middle;
+  padding: 0 !important;
+}
+.divider {
+  color: #ff914d;
+  opacity: 0.7;
+  font-weight: bold;
+}
+
+.contact-divider {
+  border: none;
+  border-top: 3px solid #ff914d;
+  margin: 24px auto;
+  width: 100%;
+  max-width: 900px;
+  opacity: 0.7;
+}
 .svg-inline--fa {
   vertical-align: -0.2em;
 }
@@ -793,6 +850,63 @@ footer .rounded-social-buttons {
   gap: 10px;
 }
 
-footer .social-button {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Add or update these rules for a one-page, compact layout */
+body,
+html {
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  min-height: 70vh;
+  padding-bottom: 0;
+}
+
+.new_home_web {
+  padding-bottom: 0;
+}
+
+.responsive-container-block.big-container {
+  padding-bottom: 0;
+}
+
+footer {
+  width: 100%;
+  background: #ff914d;
+  color: #fff;
+  text-align: center;
+  padding: 18px 0 10px 0;
+  font-size: 16px;
+  font-family: Nunito, sans-serif;
+  margin-top: 24px;
+  letter-spacing: 0.5px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+@media (max-width: 900px) {
+  .contact-info th,
+  .contact-info td {
+    padding: 10px 4px;
+  }
+  .container-block.form-wrapper {
+    padding: 0 4px;
+  }
+}
+
+@media (max-width: 700px) {
+  main {
+    min-height: 60vh;
+  }
+  .contact-info th,
+  .contact-info td {
+    padding: 8px 0;
+  }
+  .container-block.form-wrapper {
+    padding: 0 2px;
+  }
 }

@@ -63,107 +63,112 @@
           <div class="responsive-container-block textContainer">
             <div class="topHead">
               <p class="text-blk heading">
-                Contact Us</span>
+                Contact Us
               </p>
               <div class="orangeLine"></div>
             </div>
-            <p class="text-blk subHeading">
-<ul class="contact-info">
-  <li><strong>Address:</strong> <ul>43 Main St, Toms River, NJ 08753</ul></li>
-  <li><strong>Phone:</strong> 
-    <ul>(732) 555-1234</ul></li>
-  <li>
-    <strong>Store Hours:</strong>
-    <ul>
-      <li>Weekdays: 7:00 AM – 4:30 PM</li>
-      <li>Saturday: 10:00 AM – 2:00 PM</li>
-    </ul>
-  </li>
-</ul>
-
+            <!-- Contact Info Table FIRST -->
+            <p class="text-blk subHeading" style="margin-bottom: 0;">
+              <hr class="contact-divider" />
+              <table class="table table-borderless contact-info" style="width:auto; margin-bottom:0;">
+                <tr>
+                  <th><strong>Address</strong></th>
+                  <th><strong>Phone</strong></th>
+                  <th><strong>Store Hours</strong></th>
+                </tr>
+                <tr>
+                  <td>43 Main St, Toms River, NJ 08753</td>
+                  <td>(732) 555-1234</td>
+                  <td>
+                    <ul style="margin-bottom:0; padding-left: 1em;">
+                      <li>Weekdays: 7:00 AM – 4:30 PM</li>
+                      <li>Saturday: 10:00 AM – 2:00 PM</li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+              <hr class="contact-divider" />
             </p>
-          </div>
-
-          <div class="responsive-container-block container">
-            <div
-              class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-7 wk-ipadp-10 line"
-            >
-              <form
-                class="form-box"
-                action="https://api.web3forms.com/submit"
-                method="POST"
+            <!-- Contact Form BELOW -->
+            <div class="responsive-container-block container" style="margin-bottom: 24px;">
+              <div
+                class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-7 wk-ipadp-10 line"
               >
-                <div class="container-block form-wrapper">
-                  <div class="responsive-container-block">
-                    <div class="left4">
-                      <div
-                        class="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6"
-                      >
-                        <input
-                          class="input"
-                          name="FirstName"
-                          placeholder="First Name"
-                          required
-                        />
+                <form
+                  class="form-box"
+                  action="https://api.web3forms.com/submit"
+                  method="POST"
+                >
+                  <div class="container-block form-wrapper">
+                    <div class="responsive-container-block">
+                      <div class="left4">
+                        <div
+                          class="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6"
+                        >
+                          <input
+                            class="input"
+                            name="FirstName"
+                            placeholder="First Name"
+                            required
+                          />
+                        </div>
+                        <div
+                          class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12"
+                        >
+                          <input
+                            class="input"
+                            name="LastName"
+                            placeholder="Last Name"
+                            required
+                          />
+                        </div>
+                        <div
+                          class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12"
+                        >
+                          <input
+                            class="input"
+                            type="email"
+                            name="Email"
+                            placeholder="Email Address"
+                            required
+                          />
+                        </div>
+                        <div
+                          class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 lastPhone"
+                        >
+                          <input
+                            class="input"
+                            name="PhoneNumber"
+                            placeholder="Phone Number"
+                          />
+                        </div>
                       </div>
                       <div
-                        class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12"
+                        class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12"
                       >
-                        <input
-                          class="input"
-                          name="LastName"
-                          placeholder="Last Name"
+                        <textarea
+                          class="textinput"
+                          name="Message"
+                          placeholder="Message"
                           required
-                        />
-                      </div>
-                      <div
-                        class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12"
-                      >
-                        <input
-                          class="input"
-                          type="email"
-                          name="Email"
-                          placeholder="Email Address"
-                          required
-                        />
-                      </div>
-                      <div
-                        class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 lastPhone"
-                      >
-                        <input
-                          class="input"
-                          name="PhoneNumber"
-                          placeholder="Phone Number"
-                        />
+                        ></textarea>
                       </div>
                     </div>
-                    <div
-                      class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12"
-                    >
-                      <textarea
-                        class="textinput"
-                        name="Message"
-                        placeholder="Message"
-                        required
-                      ></textarea>
-                    </div>
+                    <!-- Hidden Web3Forms fields -->
+                    <input
+                      type="hidden"
+                      name="access_key"
+                      value="f95e3d4d-c3d3-4f90-b64d-be235044c584"
+                    />
+                    <input
+                      type="checkbox"
+                      name="botcheck"
+                      style="display: none"
+                    />
+                    <button class="send" type="submit">Send</button>
                   </div>
-
-                  <!-- Hidden Web3Forms fields -->
-                  <input
-                    type="hidden"
-                    name="access_key"
-                    value="f95e3d4d-c3d3-4f90-b64d-be235044c584"
-                  />
-                  <input
-                    type="checkbox"
-                    name="botcheck"
-                    style="display: none"
-                  />
-
-                  <button class="send" type="submit">Send</button>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>
